@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, styled } from '@mui/material';
-import backImage from '../assests/images/bg.jpg'
+import backImage from '../assests/images/bg2.jpg'
 import Header from '../Components/Header';
 
 function Home() {
