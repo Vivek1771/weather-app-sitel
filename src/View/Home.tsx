@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, styled } from '@mui/material';
 import backImage from '../assests/images/bg2.jpg'
 import Header from '../Components/Header';
@@ -21,14 +20,18 @@ function Home() {
         borderRadius: '20px 0 0 20px'
     })
 
+    const BoxStyled = styled(Box)({
+        width: '73%',
+        height: '80%'
+    })
 
     return (
         <div>
             <Component>
-                <Image></Image>
-                <Box style={{ width: '73%', height: '80%' }}>
+                <Image />
+                <BoxStyled>
                     <Header />
-                </Box>
+                </BoxStyled>
             </Component>
         </div>
     );

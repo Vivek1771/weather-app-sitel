@@ -4,7 +4,33 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const WeatherData = React.memo(({ data }: any) => {
+type Props = {
+    data: {
+        city: {
+            name: string
+            country: string
+        }
+        list: [
+            {
+                dt: number
+                main: {
+                    temp: number
+                    temp_max: number
+                    temp_min: number
+                }
+                weather: [
+                    {
+                        main: string
+                        icon: string
+                        description: string
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+const WeatherData = React.memo(({ data }: Props) => {
 
     const city = data?.city, today = data?.list[0]
 

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { Box, InputBase, Button, styled } from '@mui/material';
 import Spinner from 'react-bootstrap/Spinner';
 import { getWeatherData } from '../Services/WeatherApi'
@@ -6,21 +6,21 @@ import WeatherData from './WeatherData';
 
 function Header() {
 
-    const [city, setCity]: any = useState('')
-    const [data, setData]: any = useState();
-    const [loading, setLoading]: any = useState(false);
+    const [city, setCity] = useState<string>('')
+    const [data, setData] = useState<null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleClick = useCallback(async () => {
         if (city?.length > 3) {
             setLoading(true)
-            const response: any = await getWeatherData(city)
-            await setLoading(false)
+            const response = await getWeatherData(city)
+            setLoading(false)
             setData(response)
         }
     }, [city])
 
 
-    const handleChangeCity = useCallback((e: any) => {
+    const handleChangeCity = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setCity(e.target.value)
     }, [])
 
